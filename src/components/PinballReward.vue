@@ -72,7 +72,7 @@ const waveEnd = () => {
       </div>
       <div v-if="showLightWave && !prefersReducedMotion" class="section-light">
         <img v-for="(_, index) in sectionInfo" :key="index" class="high-light"
-          :class="[playAnimation && `light-${index}`]" src="../../assets/lottery/pics/light.png"
+          :class="[playAnimation && `light-${index}`]" src="../assets/light.png"
           @animationend="waveEnd" />
       </div>
       <template v-if="!showLightWave && rewardIndex && flash && !prefersReducedMotion">

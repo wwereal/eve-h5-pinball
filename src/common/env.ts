@@ -1,6 +1,4 @@
-
-
-export const prefersReducedMotion = ((): boolean => {
+export const prefersReducedMotion_ = ((): boolean => {
     const indicators = ['islp', 'icfo', 'islb', 'islm'] as const;
     window.ENV_INFO = {
         /**
@@ -20,3 +18,4 @@ export const prefersReducedMotion = ((): boolean => {
 
     return prefersReducedMotion;
 })();
+export const prefersReducedMotion = false;

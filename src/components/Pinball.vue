@@ -148,11 +148,15 @@ const separatorStyle = computed(() => ({
     background: 'rgba(0, 0, 0, 0.5)',
 }));
 
-const freePlay = () => loadBall({
-    gravityScale: 0.1,
-    collisionDecay: 0.6,
-    radius: 12,
-}, 2)
+const freePlay = () => {
+    pillarsRef.value?.reset();
+    loadBall({
+        gravityScale: 0.1,
+        collisionDecay: 0.6,
+        radius: 12,
+    }, 2)
+};
+
 Promise.all([
     loadImage(new Image(), ballImgSrc).then((img) => {
         player.updateRenderConfig({

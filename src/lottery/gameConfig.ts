@@ -37,17 +37,37 @@ export const tableConfig: TableConfig = {
     baffleWidth: 6,
     trackZoneHeight: 287,
 };
+const tail = {
+    type: 'tail',
+    color: 'white',
+    width: 3,
+    shadow: [
+        {
+            blur: 4,
+            spread: 5,
+            color: 'rgba(168, 171, 254, 0.9)',
+        },
+        {
+            blur: 2,
+            spread: 2,
+            color: 'rgba(149, 251, 255, 1)',
+        },
+    ],
+}
+
+const mirage = {
+    type: 'mirage',
+    opacity: 0.7,
+    decay: 0.7,
+};
 
 export const ballRenderConfig: BallRenderConfig = {
     motionFrameCount: 14,
     radius: 9,
+    //@ts-ignore
     motionConfig: prefersReducedMotion
         ? { type: 'none' }
-        : {
-              type: 'mirage',
-              opacity: 0.7,
-              decay: 0.7,
-          },
+        : tail,
 };
 
 export const pillarRenderConfig = {
@@ -90,10 +110,10 @@ export const ballParamConfig: Record<
         motionConfig: prefersReducedMotion
             ? { type: 'none' }
             : {
-                  type: 'mirage',
-                  opacity: 0.9,
-                  decay: 0.7,
-              },
+                type: 'mirage',
+                opacity: 0.9,
+                decay: 0.7,
+            },
     },
     collision: {
         radius: 9,
@@ -104,22 +124,22 @@ export const ballParamConfig: Record<
         motionConfig: prefersReducedMotion
             ? { type: 'none' }
             : {
-                  type: 'tail',
-                  color: 'white',
-                  width: 3,
-                  shadow: [
-                      {
-                          blur: 4,
-                          spread: 5,
-                          color: 'rgba(255, 189, 134, 0.5)',
-                      },
-                      {
-                          blur: 2,
-                          spread: 2,
-                          color: 'rgba(255, 245, 158, 1)',
-                      },
-                  ],
-              },
+                type: 'tail',
+                color: 'white',
+                width: 3,
+                shadow: [
+                    {
+                        blur: 4,
+                        spread: 5,
+                        color: 'rgba(255, 189, 134, 0.5)',
+                    },
+                    {
+                        blur: 2,
+                        spread: 2,
+                        color: 'rgba(255, 245, 158, 1)',
+                    },
+                ],
+            },
     },
     double: {
         radius: 9,
@@ -130,21 +150,21 @@ export const ballParamConfig: Record<
         motionConfig: prefersReducedMotion
             ? { type: 'none' }
             : {
-                  type: 'tail',
-                  color: 'white',
-                  width: 3,
-                  shadow: [
-                      {
-                          blur: 4,
-                          spread: 5,
-                          color: 'rgba(168, 171, 254, 0.9)',
-                      },
-                      {
-                          blur: 2,
-                          spread: 2,
-                          color: 'rgba(149, 251, 255, 1)',
-                      },
-                  ],
-              },
+                type: 'tail',
+                color: 'white',
+                width: 3,
+                shadow: [
+                    {
+                        blur: 4,
+                        spread: 5,
+                        color: 'rgba(168, 171, 254, 0.9)',
+                    },
+                    {
+                        blur: 2,
+                        spread: 2,
+                        color: 'rgba(149, 251, 255, 1)',
+                    },
+                ],
+            },
     },
 };
