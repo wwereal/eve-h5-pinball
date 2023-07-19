@@ -3,8 +3,8 @@ import { loadImage } from '@/base.utils';
 import { px2rem } from '@/core.mobile';
 import { computed, onMounted, onUnmounted, ref, shallowRef, type Ref, type ShallowRef } from 'vue';
 import ballImgSrc from '@/assets/icons/ball1.png';
-import { globalConfig } from '@/modules/lottery/common/ball-engine/config';
-import { Engine } from '@/modules/lottery/common/ball-engine/engine';
+import { globalConfig } from '@/lottery/ball-engine/config';
+import { Engine } from '@/lottery/ball-engine/engine';
 import type {
     BallConfig,
     BallRenderConfig,
@@ -14,10 +14,10 @@ import type {
     Output,
     PillarRenderConfig,
     TableConfig,
-} from '@/modules/lottery/common/ball-engine/model';
-import { CollisionType, RoofShape } from '@/modules/lottery/common/ball-engine/model';
-import { Player } from '@/modules/lottery/common/ball-engine/player';
-import { runner } from '@/modules/lottery/common/ball-engine/runner';
+} from '@/lottery/ball-engine/model';
+import { CollisionType, RoofShape } from '@/lottery/ball-engine/model';
+import { Player } from '@/lottery/ball-engine/player';
+import { runner } from '@/lottery/ball-engine/runner';
 import Pillars from './PinballPillars.vue';
 import Reward from './PinballReward.vue';
 import Spring from './PinballSpring.vue';

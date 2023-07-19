@@ -1,6 +1,6 @@
 import { ShallowRef } from "vue";
-import { tableConfig } from '@/modules/lottery/common/gameConfig';
-import { Player } from "@/modules/lottery/common/ball-engine";
+import { tableConfig } from '@/lottery/gameConfig';
+import { Player } from "@/lottery/ball-engine";
 export default function (ballGameRef: ShallowRef<Player>) {
   const SPRING_COMPRESS_TIME = 300;
   let isCompressing = false;

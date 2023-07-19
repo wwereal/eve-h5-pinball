@@ -3,9 +3,9 @@ import { computed, Ref, ref } from "vue";
 import GameHeader from "./GameHeader.vue";
 import Pinball from "./Pinball.vue";
 import GameBtns from "./GameBtns.vue";
-import { useBallGame } from '@/modules/lottery/common/useBallGame';
+import { useBallGame } from '@/lottery/useBallGame';
 import useLaunch from "./useLaunch";
-import { tableConfig, pillarRenderConfig, launchConfig, ballRenderConfig } from '@/modules/lottery/common/gameConfig'
+import { tableConfig, pillarRenderConfig, launchConfig, ballRenderConfig } from '@/lottery/gameConfig'
 
 const pinballRef: Ref<InstanceType<typeof Pinball> | null> = ref(null);
 const playerStatus = computed(

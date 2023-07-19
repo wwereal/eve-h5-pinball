@@ -18,7 +18,7 @@ import { computed, ref, watch } from "vue";
 import { prefersReducedMotion } from "@/common";
 import { preloadSource } from "@/common/loadSource";
 import LaunchSignShine from "@/assets/launch-sign-shine.png";
-import type { PlayerState } from "@/modules/lottery/common/ball-engine";
+import type { PlayerState } from "@/lottery/ball-engine";
 
 const ITEM_COUNT = 10;
 const HEADER_HEIGHT = 6;

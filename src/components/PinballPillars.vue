@@ -2,7 +2,7 @@
 import { px2rem } from '@/core.mobile';
 import { computed, ref } from 'vue';
 import { prefersReducedMotion } from '@/common';
-import type { PillarRender, PlayerState } from '@/modules/lottery/common/ball-engine';
+import type { PillarRender, PlayerState } from '@/lottery/ball-engine';
 
 interface Props {
     pillarColor?: string;
@@ -290,4 +290,4 @@ defineExpose({
     }
 }
 </style>
-@/modules/lottery/common/ball-engine
+@/lottery/ball-engine

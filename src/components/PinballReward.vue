@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { ref, watch } from 'vue';
 import { prefersReducedMotion } from '@/common';
-import type { PlayerState } from '@/modules/lottery/common/ball-engine';
+import type { PlayerState } from '@/lottery/ball-engine';
 
 interface PacketConfig {
   packetType: number; // 1 红色 2 金色
