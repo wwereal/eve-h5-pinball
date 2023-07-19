@@ -37,7 +37,8 @@ export const tableConfig: TableConfig = {
     baffleWidth: 6,
     trackZoneHeight: 287,
 };
-const tail = {
+
+export const tail = {
     type: 'tail',
     color: 'white',
     width: 3,
@@ -55,7 +56,7 @@ const tail = {
     ],
 }
 
-const mirage = {
+export const mirage = {
     type: 'mirage',
     opacity: 0.7,
     decay: 0.7,
