@@ -17,7 +17,7 @@
       //   function flexible() {
       //     var docEl = document.documentElement;
       //     var width = Math.min(docEl.clientWidth, maxWidth);
-      //     var e = width / 414 / 100;
+      //     var e = width / (414 / 100);
       //     docEl.style.fontSize = e + "px";
       //     // 修正系统字体调整造成的布局问题
       //     var realitySize = parseFloat(window.getComputedStyle(docEl).fontSize);
@@ -32,7 +32,7 @@
       //   flexible();
       //   window.addEventListener("resize", flexible);
       //   window.clearFlexible = function () {
-      //     window.removeEventListener("resize", flexible);
+      //     window.addEventListener("resize", flexible);
       //   };
       // };
       // window.resetFlexible();

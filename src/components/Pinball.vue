@@ -148,11 +148,6 @@ const separatorStyle = computed(() => ({
     background: 'rgba(0, 0, 0, 0.5)',
 }));
 
-// 重置每一次发射
-const resetOneLaunchEffect = () => {
-    pillarsRef.value?.reset();
-    collideSectionIds.value = [];
-};
 const freePlay = () => loadBall({
     gravityScale: 0.1,
     collisionDecay: 0.6,
@@ -220,9 +215,6 @@ const frameLength = computed(() => player.lastFrames.value?.length ?? 0);
 const debug = (frameIndex = 0) => {
     debugFrame.value = player.debugFrame(frameIndex);
 };
-const resetAll = () => {
-    resetOneLaunchEffect();
-};
 const loadBall = (
     newBallConfig: {
         radius: number;
@@ -265,7 +257,6 @@ player.on('compress', (length) => {
 defineExpose({
     // TODO 应该只暴露 player 就好了
     startGame,
-    resetAll,
     loadBall,
     debug,
     debugFrame,
