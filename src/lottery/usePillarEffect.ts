@@ -41,7 +41,6 @@ export const usePillarEffect = (player: Player, currentBallType: number) => {
         collisions.forEach((collision) => {
             if (collision.type === CollisionType.pillar) {
                 const pos = getPillarPosition(collision.pillarId);
-                console.log('getPillarPosition', pos);
                 pos &&
                     !prefersReducedMotion &&
                     flyACoin({
