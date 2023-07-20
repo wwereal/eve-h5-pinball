@@ -15,8 +15,7 @@ const flyACoin = (props: any) => {
             }
         });
         app.mount(mountNode);
-        const container = document.querySelector('.pinball-game-container.pinball');
-        (container ?? document.body).appendChild(mountNode)
+        document.body.appendChild(mountNode)
     }
 };
 
@@ -38,6 +37,7 @@ export const usePillarEffect = (player: Player, currentBallType: number) => {
         collisions.forEach((collision) => {
             if (collision.type === CollisionType.pillar) {
                 const pos = getPillarPosition(collision.pillarId);
+                console.log('getPillarPosition', pos);
                 pos &&
                     !prefersReducedMotion &&
                     flyACoin({
