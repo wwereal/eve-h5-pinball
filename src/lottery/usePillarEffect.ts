@@ -27,8 +27,8 @@ const getPillarPosition = (id: number) => {
         const pos = pillarElement.getBoundingClientRect();
         // 活动页最宽为500px，要适配下宽屏
         return {
-            top: pos.top - trans414PxToCurrentPx(16) - 120,
-            left: pos.left - offset - 40,
+            top: pos.top - trans414PxToCurrentPx(16),
+            left: pos.left - offset,
         };
     }
 };
