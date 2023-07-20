@@ -2,7 +2,7 @@ import { createApp, defineAsyncComponent } from 'vue';
 import { prefersReducedMotion } from '@/common';
 import { ballType } from './ball';
 import { CollisionType, type Collision, type Player } from './ball-engine';
-import { offset, trans414PxToCurrentPx } from './utils';
+// import { offset, trans414PxToCurrentPx } from './utils';
 
 const flyACoin = (props: any) => {
     if (props) {
@@ -25,9 +25,13 @@ const getPillarPosition = (id: number) => {
     if (pillarElement && pinballElement) {
         const pos = pillarElement.getBoundingClientRect();
         // 活动页最宽为500px，要适配下宽屏
+        // return {
+        //     top: pos.top - trans414PxToCurrentPx(16),
+        //     left: pos.left - offset,
+        // };
         return {
-            top: pos.top - trans414PxToCurrentPx(16),
-            left: pos.left - offset,
+            top: pos.top,
+            left: pos.left,
         };
     }
 };
