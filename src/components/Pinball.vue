@@ -154,7 +154,7 @@ const freePlay = () => {
         gravityScale: 0.1,
         collisionDecay: 0.6,
         radius: 12,
-    }, 2)
+    }, Math.floor(Math.random() * 6) + 1);
 };
 
 Promise.all([
