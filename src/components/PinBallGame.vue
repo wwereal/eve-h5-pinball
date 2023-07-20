@@ -1,32 +1,47 @@
 <script lang="ts" setup>
-import { computed, Ref, ref } from "vue";
+import { computed, Ref, ref, watch } from "vue";
 import GameHeader from "./GameHeader.vue";
 import Pinball from "./Pinball.vue";
 import GameBtns from "./GameBtns.vue";
-import { useBallGame } from '@/lottery/useBallGame';
+import { BallType, useBallGame } from "@/lottery/useBallGame";
 import useLaunch from "./useLaunch";
-import { tableConfig, pillarRenderConfig, launchConfig, ballRenderConfig } from '@/lottery/gameConfig'
+import {
+  tableConfig,
+  pillarRenderConfig,
+  launchConfig,
+  ballRenderConfig,
+} from "@/lottery/gameConfig";
+import { usePillarEffect } from "@/lottery/usePillarEffect";
 
 const pinballRef: Ref<InstanceType<typeof Pinball> | null> = ref(null);
 const playerStatus = computed(
   () => pinballRef.value?.player.state.value ?? "static"
 );
-const { gameTouchMove, gameTouchStart, ballGameRef } = useBallGame(pinballRef as any);
+const { gameTouchMove, gameTouchStart, ballGameRef } = useBallGame(
+  pinballRef as any
+);
 
 // 下拉弹簧
 const pinballTouchStart = (e: TouchEvent) => {
-    gameTouchStart(e);
+  gameTouchStart(e);
 };
 
 const pinballTouchMove = (e: TouchEvent) => {
-    gameTouchMove(e);
+  gameTouchMove(e);
 };
 
-const { clickToLaunch } = useLaunch(ballGameRef as any)
+const { clickToLaunch } = useLaunch(ballGameRef as any);
+
+const unwatchBallGame = watch(ballGameRef, (val) => {
+  if (val) {
+    usePillarEffect(val, BallType.collision);
+    unwatchBallGame();
+  }
+});
 </script>
 
 <template>
-  <div class="pinball-game-container">
+  <div class="pinball-game-container pinball">
     <!--单纯头部图片-->
     <GameHeader class="pinball-game-head" />
 
@@ -41,7 +56,9 @@ const { clickToLaunch } = useLaunch(ballGameRef as any)
         <source srcset="../assets/pinball-middle.png" type="image/png" />
         <img src="../assets/pinball-middle.png" />
       </picture>
-    
+
+      <div id="pinball-game-withdraw" class="withdraw" />
+
       <!-- 弹球主玩法区 -->
       <Pinball
         ref="pinballRef"
@@ -95,6 +112,11 @@ const { clickToLaunch } = useLaunch(ballGameRef as any)
         width: 414px;
         height: 478px;
       }
+    }
+    .withdraw {
+      width: 280px;
+      height: 75px;
+      margin: 0 auto;
     }
 
     .pinball-render {

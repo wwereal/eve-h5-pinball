@@ -57,3 +57,10 @@ export const parseKwaiLiveUrl = (url = '') => {
     const targetUrl = decodedUrl.split('url=')[1] ?? '';
     return targetUrl;
 };
+
+export const trans414PxToCurrentPx = (val: number, baseWidth = 414, maxWidth = 500) => {
+    const docEl = document.documentElement;
+    const width = Math.min(docEl.clientWidth, maxWidth);
+    const ratio = width / baseWidth;
+    return val * ratio;
+};
