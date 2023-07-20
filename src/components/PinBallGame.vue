@@ -4,7 +4,7 @@ import GameHeader from "./GameHeader.vue";
 import Pinball from "./Pinball.vue";
 import GameBtns from "./GameBtns.vue";
 import { BallType, useBallGame } from "@/lottery/useBallGame";
-import useLaunch from "./useLaunch";
+import useLaunch from "@/lottery/useLaunch";
 import {
   tableConfig,
   pillarRenderConfig,
@@ -125,3 +125,4 @@ const unwatchBallGame = watch(ballGameRef, (val) => {
   }
 }
 </style>
+../lottery/useLaunch
