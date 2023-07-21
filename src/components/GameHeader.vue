@@ -1,27 +1,10 @@
-<script lang="ts" setup>
-import { computed } from 'vue'
-const bgClass = computed(() => {
-    // if (prefersReducedMotion || blockTv.value || !homeReady.value || !showApng.value) {
-    //     return '';
-    // }
-    // return gameState.value === 'playing-launch' || gameState.value === 'compressing' ? 'fast' : 'slow';
-    return 'fast'
-});
-</script>
 <template>
-  <div class="pinball-game-head" :class="[bgClass]">
-      <!-- 透明玻璃罩子 -->
+  <div class="pinball-game-head fast">
       <picture class="rabbit">
           <source srcset="../assets/pinball-top.webp" type="image/webp" />
           <source srcset="..assets/pinball-top.png" type="image/png	" />
           <img class="img" src="../assets/pinball-top.png" />
       </picture>
-      <!-- 表情 -->
-      <!-- <template v-if="!prefersReducedMotion">
-          <div class="emoji" :class="[gameState]"></div>
-          <img v-if="homeReady" v-show="gameState === 'compressing'" :src="compressEmojiApng" class="light" />
-      </template> -->
-      <!-- <template v-else><div class="emoji"></div></template> -->
   </div>
 </template>
 

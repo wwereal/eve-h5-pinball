@@ -14,11 +14,12 @@ import {
 import { usePillarEffect } from "@/lottery/usePillarEffect";
 
 const pinballRef: Ref<InstanceType<typeof Pinball> | null> = ref(null);
-const playerStatus = computed(
-  () => pinballRef.value?.player.state.value ?? "static"
-);
 const { gameTouchMove, gameTouchStart, ballGameRef } = useBallGame(
   pinballRef as any
+);
+
+const playerStatus = computed(
+  () => pinballRef.value?.player.state.value ?? "static"
 );
 
 // 下拉弹簧
