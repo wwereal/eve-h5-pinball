@@ -155,7 +155,7 @@ type PreloadSource = (sourceUrl: string[] | string, options?: Options) => LoadSo
 
 export const preloadSource: PreloadSource = (sourceUrl, options = {}) => {
     const { lpDisable = false } = options;
-    if (lpDisable && window.ENV_INFO.islp) {
+    if (lpDisable && (window as any).ENV_INFO.islp) {
         return Promise.resolve({
             done: true,
             detail: [],
